@@ -13,7 +13,7 @@ public class KillPlayer : MonoBehaviour {
 	
 	}
 
-	void OnTriggerStay(Collider col){
+	void OnCollisionStay(Collision col){
 		if(col.rigidbody.tag == "Player"){
 			Destroy(col.gameObject);
 			Camera.main.SendMessage("PlayerDied");

@@ -10,6 +10,11 @@ public class BasicMovement : MonoBehaviour {
 	public GameObject Animator;
 	public Animator anim;
 
+	//audio things
+	public AudioClip JumpAngry;
+	public AudioClip JumpHappy;
+	public AudioClip Run;
+	public AudioClip Land;
 
 	public float ShakeAmount = 0.05f;
 	public float CurrentShakeAmount = 0.0f;
@@ -49,6 +54,7 @@ public class BasicMovement : MonoBehaviour {
 		rb = GetComponent<Rigidbody>();
 		_shake = Camera.main.GetComponent<CameraShake>();
 		_grounded = GroundDetector.GetComponent<IsGrounded> ();
+
 	}
 
 	void Update () {
@@ -95,6 +101,8 @@ public class BasicMovement : MonoBehaviour {
 				anim.SetBool("isAngryRunning",false);
 				anim.SetBool("isAngryJumping",true);
 				rb.AddForce(transform.up * Time.deltaTime * AngryJump);
+				audio.clip = JumpAngry;
+				audio.Play();
 				ShakeAmount = (CurrentShakeAmount + 0.05f);
 				_shake.shake = ShakeAmount;
 			}
@@ -106,6 +114,8 @@ public class BasicMovement : MonoBehaviour {
 				anim.SetBool("isHappyRunning",false);
 				anim.SetBool("isHappyJumping",true);
 				rb.AddForce(transform.up * Time.deltaTime * StandardJump);
+				audio.clip = JumpHappy;
+				audio.Play();
 				ShakeAmount = CurrentShakeAmount;
 				_shake.shake = ShakeAmount;
 			}
@@ -125,6 +135,8 @@ public class BasicMovement : MonoBehaviour {
 				anim.SetBool("isAngryRunning",false);
 				rb.AddForce(transform.up * Time.deltaTime * AngryJump / 1.1f);
 				rb.AddForce(transform.right * Time.deltaTime * 500000);
+				audio.clip = JumpAngry;
+				audio.Play();
 				ShakeAmount = (CurrentShakeAmount + 0.01f);
 				_shake.shake = ShakeAmount;
 			}
@@ -137,6 +149,8 @@ public class BasicMovement : MonoBehaviour {
 				anim.SetBool("isHappyJumping",true);
 				anim.SetBool("isHappyRunning",false);
 				rb.AddForce(transform.right * Time.deltaTime * 50000);
+				audio.clip = JumpHappy;
+				audio.Play();
 				ShakeAmount = CurrentShakeAmount;
 				_shake.shake = ShakeAmount;
 			}
@@ -156,6 +170,8 @@ public class BasicMovement : MonoBehaviour {
 				anim.SetBool("isAngryRunning",false);
 				rb.AddForce(transform.up * Time.deltaTime * AngryJump / 1.1f);
 				rb.AddForce(transform.right * Time.deltaTime * -500000);
+				audio.clip = JumpAngry;
+				audio.Play();
 				ShakeAmount = (CurrentShakeAmount + 0.01f);
 				_shake.shake = ShakeAmount;
 			}
@@ -168,6 +184,8 @@ public class BasicMovement : MonoBehaviour {
 				anim.SetBool("isHappyJumping",true);
 				anim.SetBool("isHappyRunning",false);
 				rb.AddForce(transform.right * Time.deltaTime * -50000);
+				audio.clip = JumpHappy;
+				audio.Play();
 				ShakeAmount = (CurrentShakeAmount + 0.01f);
 				_shake.shake = ShakeAmount;
 			}
