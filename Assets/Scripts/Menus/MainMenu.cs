@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	void Play(){
-		Application.LoadLevel(1);
+		Application.LoadLevel(Application.loadedLevel + 1);
 	}
 
 	void Quit(){
