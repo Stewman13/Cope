@@ -7,10 +7,12 @@ public class MoveTowards : MonoBehaviour {
 	public Animator anim;
 
 	public Transform CurrentCheckpoint;
-	public GameObject Checkpoint1;
-	public GameObject Checkpoint2;
-	public GameObject Checkpoint3;
-	public GameObject Checkpoint4;
+	public Transform Checkpoint1;
+	public Transform Checkpoint2;
+	public Transform Checkpoint3;
+	public Transform Checkpoint4;
+	public Transform Checkpoint5;
+	public Transform Checkpoint6;
 
 	public bool ShouldMove = false;
 
